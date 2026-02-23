@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vinylist · Led Zeppelin mood</title>
+    <!-- Google Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+   <!-- LEFT SIDEBAR -->
+<div class="sidebar">
+    <div class="user-info">
+        <h3>🎵 VIBE</h3>
+        <span class="user-badge">premium</span>
+    </div>
+        
+        <!-- Categories -->
+        <ul class="category-list">
+            <li class="active" id="cat-modern" onclick="filterCategory('Modern')">Modern</li>
+            <li id="cat-classic" onclick="filterCategory('Classic')">Classic</li>
+            <li id="cat-90s" onclick="filterCategory('90s')">90s</li>
+            <li id="cat-instrumental" onclick="filterCategory('Instrumental')">Instrumental</li>
+        </ul>
+
+        <!-- LIKED SONGS SECTION -->
+        <div class="liked-section">
+            <div class="liked-header" onclick="toggleLikedSongs()">
+                <i class="fas fa-heart" style="color: #ff4d4d;"></i>
+                <h4>Liked Songs</h4>
+                <span class="liked-count" id="liked-count">0</span>
+                <i class="fas fa-chevron-down" id="liked-chevron"></i>
+            </div>
+            <div class="liked-songs-list expanded" id="liked-songs-list">
+                <!-- Liked songs will appear here -->
+                <div class="empty-liked">No liked songs yet ❤️</div>
+            </div>
+        </div>
+
+        <!-- ALL SONGS SECTION -->
+        <div class="all-songs-header" onclick="toggleAllSongs()">
+            <h4>All Songs</h4>
+            <i class="fas fa-chevron-down" id="all-songs-chevron"></i>
+        </div>
+        <div class="all-songs-container" id="all-songs-container">
+            <div id="song-list" class="song-list"></div>
+        </div>
+    </div>
+
+    <!-- CENTER VINYL SCREEN (vinyl + now playing) -->
+    <div class="content">
+        <div class="player-screen">
+            <div class="vinyl-container">
+                <div id="vinyl" class="vinyl"></div>
+            </div>
+            <div class="now-playing">
+                <h2 id="screen-title">Mothership</h2>
+                <p id="screen-artist">Led Zeppelin</p>
+                <div class="screen-controls">
+                    <button id="screen-play" class="screen-play-btn"><i class="fas fa-play"></i></button>
+                    <button id="screen-like" class="screen-like-btn"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR (beige) – Up Next / album info -->
+    <div class="right-sidebar">
+        <div class="queue-header">
+            <h3>Up Next</h3>
+        </div>
+        <div id="queue-list" class="queue-list"></div>
+        <!-- album info paragraph -->
+        <div class="album-info">
+            <p class="album-title">Mothership · 2002</p>
+            <p class="album-desc">Greatest hits compilation by Led Zeppelin. Released 12 Nov 2002.</p>
+        </div>
+    </div>
+</div>
+
+<!-- hidden audio element -->
+<audio id="audio"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
